@@ -1,21 +1,21 @@
-import './nav.css';
+import styles from './nav.module.css';
 
 const Nav = () => (
-  <nav className="nav">
-    <div>
-      <a>Profile</a>
+  <nav className={styles.nav}>
+    <div className={styles.item}>
+      <a href='# '>Profile</a>
     </div>
-    <div>
-      <a>Messages</a>
+    <div className={styles.item}>
+      <a href='#'>Messages</a>
     </div>
-    <div>
-      <a>News</a>
+    <div className={styles.item}>
+      <a href='#'>News</a>
     </div>
-    <div>
-      <a>Music</a>
+    <div className={styles.item}>
+      <a href='#'>Music</a>
     </div>
-    <div>
-      <a>Settings</a>
+    <div className={styles.item}>
+      <a href='#'>Settings</a>
     </div>
   </nav>
 );
