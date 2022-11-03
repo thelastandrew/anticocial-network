@@ -3,13 +3,11 @@ import Post from './Post/Post';
 
 const MyPosts = () => (
   <div>
-  My posts
-  <div>New post</div>
-  <textarea></textarea><br />
-  <button>Add post</button>
+  <textarea></textarea>
+  <button className={styles.add_post_btn}>Add post</button>
     <div className={styles.posts}>
-      <Post>post 1</Post>
-      <Post>post 2</Post>
+      <Post message='My first post' likes={20} />
+      <Post message='Lorem  ipsum' likes={42} />
     </div>
 </div>
 );
