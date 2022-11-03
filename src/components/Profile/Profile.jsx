@@ -3,11 +3,11 @@ import wallPaper from './cover3.jpg';
 import MyPosts from './MyPosts/MyPosts';
 
 const Profile = () => (
-  <div className={styles.content}>
-  <img src={wallPaper} alt="wallpaper" />
+  <>
+  <img className={styles.wallPaper} src={wallPaper} alt="wallpaper" />
   <div>ava + description</div>
   <MyPosts />
-</div>
+</>
 );
 
 export default Profile;
