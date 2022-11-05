@@ -1,0 +1,10 @@
+.item {
+  padding: 5px;
+}
+
+.item .active {
+  background-color: rgb(197, 221, 243);
+  border-radius: 3px 0 0 3px;
+  color: rgb(9, 94, 97);
+  font-weight: bold;
+}

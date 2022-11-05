@@ -1,0 +1,20 @@
+.user_name {
+  padding: 5px;
+  border-radius: 2px 2px 0 0;
+  background-color: cadetblue;
+  color: white;
+}
+
+.message_text {
+  padding: 5px;
+  border-radius: 0 0 2px 2px;
+  background-color: white;
+}
+
+.message:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.me {
+  text-align: right;
+}

@@ -1,22 +1,26 @@
 import styles from './dialogs.module.css';
+import DialogItem from './DialogItem/DialogItem';
+import Message from './Message/Message';
 
 const Dialogs = () => (
   <>
     <div className={styles.dialogs_items}>
       <div className={styles.chats}>
-        <div className={`${styles.item} ${styles.active}`}>Anna</div>
-        <div className={styles.item}>Mom</div>
-        <div className={styles.item}>Anton</div>
+        <DialogItem userName='Anna' id='1' />
+        <DialogItem userName='Mom' id='2' />
+        <DialogItem userName='Anton' id='3' />
       </div>
       <div className={styles.messages}>
-        <div className={styles.message}>
-          <div className={styles.user_name}>Anna</div>
-          <div className={styles.message_text}>Hello</div>
-        </div>
-        <div className={`${styles.message} ${styles.me}`}>
-          <div className={styles.user_name}>me</div>
-          <div className={styles.message_text}>I love you</div>
-        </div>
+        <Message
+          userName='Anna'
+          messageText='Hello'
+          isMe={false}
+        />
+        <Message
+          userName='me'
+          messageText='I love you'
+          isMe={true}
+        />
         <textarea className={styles.textarea}></textarea>
         <button className={styles.send_btn}>Send</button>
       </div>
