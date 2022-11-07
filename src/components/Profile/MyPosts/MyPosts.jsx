@@ -1,4 +1,4 @@
-import styles from './my-posts.module.css';
+import styles from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = () => (
