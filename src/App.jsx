@@ -8,7 +8,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 const App = (props) => (
   <div className="app-wrapper">
     <Header />
-    <Nav />
+    <Nav state={props.state.sideBar} />
     <div className="content">
       <Routes>
         <Route path="/" element={<Profile state={props.state.profilePage} />} />

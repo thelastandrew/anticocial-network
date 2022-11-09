@@ -1,14 +1,19 @@
+.navItems {
+  margin-bottom: 50px;
+}
+
 .nav {
   padding: 8px;
   grid-area: n;
-  background-color: burlywood;
-}
-
-.item {
   color: white;
+  background-color: burlywood;
 }
 
 .item a.active {
   font-weight: bold;
   text-decoration: underline;
+}
+
+.friends>p {
+  font-weight: bold;
 }

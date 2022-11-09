@@ -17,6 +17,14 @@ const state = {
       { id: 2, userName: 'me', message: 'I love you', isMe: true },
     ],
   },
+
+  sideBar: {
+    friends: [
+      { id: 1, name: 'Ann' },
+      { id: 2, name: 'Mom' },
+      { id: 3, name: 'Anton' },
+    ],
+  },
 };
 
 export default state;
