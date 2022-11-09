@@ -1,11 +1,11 @@
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import MyPosts from './MyPosts/MyPosts';
 
-const Profile = () => (
+const Profile = (props) => (
   <>
-  <ProfileInfo />
-  <MyPosts />
-</>
+    <ProfileInfo />
+    <MyPosts posts={props.posts} />
+  </>
 );
 
 export default Profile;
