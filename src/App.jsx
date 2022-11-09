@@ -11,11 +11,11 @@ const App = (props) => (
     <Nav />
     <div className="content">
       <Routes>
-        <Route path="/" element={<Profile posts={props.posts} />} />
+        <Route path="/" element={<Profile state={props.state.profilePage} />} />
         <Route
           path="/dialogs"
           element={
-            <Dialogs dialogs={props.dialogs} messages={props.messages} />
+            <Dialogs state={props.state.dialogsPage} />
           }
         />
         <Route path="*" element={<div>page not found</div>} />
