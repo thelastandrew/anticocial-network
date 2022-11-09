@@ -1,22 +1,22 @@
 import { NavLink } from 'react-router-dom';
-import styles from './nav.module.css';
+import s from './Nav.module.css';
 
 const Nav = () => (
-  <nav className={styles.nav}>
-    <div className={styles.item}>
-      <NavLink className={({isActive}) => isActive ? styles.active : ''} to='/'>Profile</NavLink>
+  <nav className={s.nav}>
+    <div className={s.item}>
+      <NavLink className={({isActive}) => isActive ? s.active : ''} to='/'>Profile</NavLink>
     </div>
-    <div className={styles.item}>
-      <NavLink className={({isActive}) => isActive ? styles.active : ''} to='/dialogs'>Messages</NavLink>
+    <div className={s.item}>
+      <NavLink className={({isActive}) => isActive ? s.active : ''} to='/dialogs'>Messages</NavLink>
     </div>
-    <div className={styles.item}>
-      <NavLink className={({isActive}) => isActive ? styles.active : ''} to='/news'>News</NavLink>
+    <div className={s.item}>
+      <NavLink className={({isActive}) => isActive ? s.active : ''} to='/news'>News</NavLink>
     </div>
-    <div className={styles.item}>
-      <NavLink className={({isActive}) => isActive ? styles.active : ''} to='/music'>Music</NavLink>
+    <div className={s.item}>
+      <NavLink className={({isActive}) => isActive ? s.active : ''} to='/music'>Music</NavLink>
     </div>
-    <div className={styles.item}>
-      <NavLink className={({isActive}) => isActive ? styles.active : ''} to='/settings'>Settings</NavLink>
+    <div className={s.item}>
+      <NavLink className={({isActive}) => isActive ? s.active : ''} to='/settings'>Settings</NavLink>
     </div>
   </nav>
 );

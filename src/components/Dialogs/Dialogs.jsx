@@ -1,4 +1,4 @@
-import styles from './dialogs.module.css';
+import s from './dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
@@ -16,14 +16,14 @@ const Dialogs = () => {
 
   return (
     <>
-      <div className={styles.dialogs_items}>
-        <div className={styles.chats}>
+      <div className={s.dialogs_items}>
+        <div className={s.chats}>
           { dialogData.map(dialog => <DialogItem key={dialog.id} userName={dialog.name} id={dialog.id} />) }
         </div>
-        <div className={styles.messages}>
+        <div className={s.messages}>
           { messagesData.map(message => <Message key={message.id} userName={message.userName} messageText={message.message} isMe={message.isMe} />) }
-          <textarea className={styles.textarea}></textarea>
-          <button className={styles.send_btn}>Send</button>
+          <textarea className={s.textarea}></textarea>
+          <button className={s.send_btn}>Send</button>
         </div>
       </div>
     </>

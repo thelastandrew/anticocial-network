@@ -1,4 +1,4 @@
-import styles from './MyPosts.module.css';
+import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = () => {
@@ -10,8 +10,8 @@ const MyPosts = () => {
   return (
     <div>
       <textarea></textarea>
-      <button className={styles.add_post_btn}>Add post</button>
-      <div className={styles.posts}>
+      <button className={s.add_post_btn}>Add post</button>
+      <div className={s.posts}>
         { postsData.map(post => <Post key={post.id} message={post.message} likesCount={post.likesCount} />) }
       </div>
     </div>
