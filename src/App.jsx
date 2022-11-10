@@ -11,7 +11,10 @@ const App = (props) => (
     <Nav state={props.state.sideBar} />
     <div className="content">
       <Routes>
-        <Route path="/" element={<Profile state={props.state.profilePage} />} />
+        <Route
+          path="/"
+          element={<Profile state={props.state.profilePage}/>}
+        />
         <Route
           path="/dialogs"
           element={
