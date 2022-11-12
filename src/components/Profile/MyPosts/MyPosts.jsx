@@ -4,16 +4,21 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
   const postEl = createRef();
-  const handleClick = () => {
-    const value = postEl.current.value;
-    props.addPost(value);
-    postEl.current.value = '';
+
+  const handleChange = () => {
+    const text = postEl.current.value;
+    props.updateNewPostText(text);
   };
 
   return (
     <div>
-      <textarea className={s.textarea} ref={postEl}></textarea>
-      <button className={s.addPostBtn} onClick={handleClick}>
+      <textarea
+        className={s.textarea}
+        ref={postEl}
+        value={props.newPostText}
+        onChange={handleChange}
+      ></textarea>
+      <button className={s.addPostBtn} onClick={props.addPost}>
         Add post
       </button>
       <div className={s.posts}>

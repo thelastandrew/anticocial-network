@@ -1,4 +1,4 @@
-import rerenderEntireTree from "../render";
+import rerenderEntireTree from '../render';
 
 const state = {
   profilePage: {
@@ -6,6 +6,7 @@ const state = {
       { id: 1, message: 'My first post', likesCount: 20 },
       { id: 2, message: 'Lorem ipsum', likesCount: 42 },
     ],
+    newPostText: '',
   },
 
   dialogsPage: {
@@ -29,14 +30,20 @@ const state = {
   },
 };
 
-export const addPost = (postMessage) => {
+export const addPost = () => {
   const newPost = {
     id: state.profilePage.posts.length + 1,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     likesCount: 0,
   }
 
   state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = '';
+  rerenderEntireTree(state);
+};
+
+export const updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
   rerenderEntireTree(state);
 };
 

@@ -14,7 +14,12 @@ const App = (props) => (
         <Route
           path="/"
           element={
-            <Profile profilePage={props.state.profilePage} addPost={props.addPost}/>
+            <Profile
+              profilePage={props.state.profilePage}
+              newPostText={props.state.newPostText}
+              updateNewPostText={props.updateNewPostText}
+              addPost={props.addPost}
+            />
           }
         />
         <Route
