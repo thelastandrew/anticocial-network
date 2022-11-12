@@ -6,7 +6,8 @@ const MyPosts = (props) => {
   const postEl = createRef();
   const handleClick = () => {
     const value = postEl.current.value;
-    alert(value);
+    props.addPost(value);
+    postEl.current.value = '';
   };
 
   return (

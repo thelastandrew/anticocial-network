@@ -13,12 +13,15 @@ const App = (props) => (
       <Routes>
         <Route
           path="/"
-          element={<Profile state={props.state.profilePage}/>}
+          element={
+            <Profile profilePage={props.state.profilePage} addPost={props.addPost}/>
+          }
         />
         <Route
           path="/dialogs"
           element={
-            <Dialogs state={props.state.dialogsPage} />
+            <Dialogs dialogsPage={props.state.dialogsPage}
+            addMessage={props.addMessage}/>
           }
         />
         <Route path="*" element={<div>page not found</div>} />

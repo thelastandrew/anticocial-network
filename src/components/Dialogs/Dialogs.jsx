@@ -8,19 +8,20 @@ const Dialogs = (props) => {
 
   const handleClick = () => {
     const value = messageTextEl.current.value;
-    alert(value);
+    props.addMessage(value);
+    messageTextEl.current.value = '';
   };
 
   return (
     <>
       <div className={s.dialogs_items}>
         <div className={s.chats}>
-          {props.state.dialogs.map((dialog) => (
+          {props.dialogsPage.dialogs.map((dialog) => (
             <DialogItem key={dialog.id} userName={dialog.name} id={dialog.id} />
           ))}
         </div>
         <div className={s.messages}>
-          {props.state.messages.map((message) => (
+          {props.dialogsPage.messages.map((message) => (
             <Message
               key={message.id}
               userName={message.userName}
