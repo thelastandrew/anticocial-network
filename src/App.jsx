@@ -16,7 +16,6 @@ const App = (props) => (
           element={
             <Profile
               profilePage={props.state.profilePage}
-              newPostText={props.state.newPostText}
               updateNewPostText={props.updateNewPostText}
               addPost={props.addPost}
             />
@@ -25,8 +24,11 @@ const App = (props) => (
         <Route
           path="/dialogs"
           element={
-            <Dialogs dialogsPage={props.state.dialogsPage}
-            addMessage={props.addMessage}/>
+            <Dialogs
+              dialogsPage={props.state.dialogsPage}
+              updateNewMessageText={props.updateNewMessageText}
+              addMessage={props.addMessage}
+            />
           }
         />
         <Route path="*" element={<div>page not found</div>} />

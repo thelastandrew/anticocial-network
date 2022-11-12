@@ -19,6 +19,7 @@ const state = {
       { id: 1, userName: 'Anna', message: 'Hello', isMe: false },
       { id: 2, userName: 'me', message: 'I love you', isMe: true },
     ],
+    newMessageText: '',
   },
 
   sideBar: {
@@ -47,16 +48,22 @@ export const updateNewPostText = (newText) => {
   rerenderEntireTree(state);
 };
 
-export const addMessage = (messageText) => {
+export const addMessage = () => {
   const newMessage = {
     id: state.dialogsPage.messages.length + 1,
     userName: 'me',
-    message: messageText,
+    message: state.dialogsPage.newMessageText,
     isMe: true,
   };
 
   state.dialogsPage.messages.push(newMessage);
+  state.dialogsPage.newMessageText = '';
   rerenderEntireTree(state);
+};
+
+export const updateNewMessageText = (newText) => {
+  state.dialogsPage.newMessageText = newText;
+  rerenderEntireTree(state)
 };
 
 export default state;

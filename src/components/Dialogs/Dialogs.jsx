@@ -6,10 +6,9 @@ import { useRef } from 'react';
 const Dialogs = (props) => {
   const messageTextEl = useRef();
 
-  const handleClick = () => {
-    const value = messageTextEl.current.value;
-    props.addMessage(value);
-    messageTextEl.current.value = '';
+  const handleChange = () => {
+    const text = messageTextEl.current.value;
+    props.updateNewMessageText(text);
   };
 
   return (
@@ -29,8 +28,16 @@ const Dialogs = (props) => {
               isMe={message.isMe}
             />
           ))}
-          <textarea className={s.textarea} ref={messageTextEl}></textarea>
-          <button className={s.send_btn} onClick={handleClick}>Send</button>
+          <textarea
+            className={s.textarea}
+            ref={messageTextEl}
+            value={props.dialogsPage.newMessageText}
+            onChange={handleChange}
+          ></textarea>
+          <button
+            className={s.send_btn}
+            onClick={props.addMessage}
+          >Send</button>
         </div>
       </div>
     </>
