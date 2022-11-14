@@ -30,51 +30,58 @@ const store = {
     },
   },
 
-  getState() {
-    return this._state;
-  },
-
   _callSubscriber() {
     console.log('State has changed');
   },
 
-  addPost() {
-    const newPost = {
-      id: this._state.profilePage.posts.length + 1,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0,
-    }
-
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = '';
-    this._callSubscriber();
-  },
-
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscriber();
-  },
-
-  addMessage() {
-    const newMessage = {
-      id: this._state.dialogsPage.messages.length + 1,
-      userName: 'me',
-      message: this._state.dialogsPage.newMessageText,
-      isMe: true,
-    };
-
-    this._state.dialogsPage.messages.push(newMessage);
-    this._state.dialogsPage.newMessageText = '';
-    this._callSubscriber();
-  },
-
-  updateNewMessageText(newText) {
-    this._state.dialogsPage.newMessageText = newText;
-    this._callSubscriber()
+  getState() {
+    return this._state;
   },
 
   subscribe(observer) {
     this._callSubscriber = observer;
+  },
+
+  dispatch(action) {
+    switch (action.type) {
+      case 'ADD-POST':
+        const newPost = {
+          id: this._state.profilePage.posts.length + 1,
+          message: this._state.profilePage.newPostText,
+          likesCount: 0,
+        }
+
+        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.newPostText = '';
+        this._callSubscriber();
+        break;
+
+      case 'UPD-NEW-POST-TXT':
+        this._state.profilePage.newPostText = action.newText;
+        this._callSubscriber();
+        break;
+
+      case 'ADD-MESSAGE':
+        const newMessage = {
+          id: this._state.dialogsPage.messages.length + 1,
+          userName: 'me',
+          message: this._state.dialogsPage.newMessageText,
+          isMe: true,
+        };
+
+        this._state.dialogsPage.messages.push(newMessage);
+        this._state.dialogsPage.newMessageText = '';
+        this._callSubscriber();
+        break;
+
+      case 'UPD-NEW-MSG-TXT':
+        this._state.dialogsPage.newMessageText = action.newText;
+        this._callSubscriber();
+        break;
+
+      default:
+        console.log('UNKNOWN ACTION');
+    }
   },
 };
 

@@ -7,8 +7,15 @@ const Dialogs = (props) => {
   const messageTextEl = useRef();
 
   const handleChange = () => {
-    const text = messageTextEl.current.value;
-    props.updateNewMessageText(text);
+    const action = {
+      type: 'UPD-NEW-MSG-TXT',
+      newText: messageTextEl.current.value,
+    };
+    props.dispatch(action);
+  };
+
+  const handleClick = () => {
+    props.dispatch({ type: 'ADD-MESSAGE' });
   };
 
   return (
@@ -36,7 +43,7 @@ const Dialogs = (props) => {
           ></textarea>
           <button
             className={s.send_btn}
-            onClick={props.addMessage}
+            onClick={handleClick}
           >Send</button>
         </div>
       </div>

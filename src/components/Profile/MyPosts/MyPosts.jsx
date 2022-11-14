@@ -6,8 +6,15 @@ const MyPosts = (props) => {
   const postEl = createRef();
 
   const handleChange = () => {
-    const text = postEl.current.value;
-    props.updateNewPostText(text);
+    const action = {
+      type: 'UPD-NEW-POST-TXT',
+      newText: postEl.current.value,
+    };
+    props.dispatch(action);
+  };
+
+  const handleClick = () => {
+    props.dispatch({ type: 'ADD-POST' });
   };
 
   return (
@@ -18,7 +25,7 @@ const MyPosts = (props) => {
         value={props.newPostText}
         onChange={handleChange}
       ></textarea>
-      <button className={s.addPostBtn} onClick={props.addPost}>
+      <button className={s.addPostBtn} onClick={handleClick}>
         Add post
       </button>
       <div className={s.posts}>
