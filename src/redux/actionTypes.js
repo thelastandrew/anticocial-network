@@ -1,0 +1,6 @@
+export const actionTypes = {
+  ADD_POST: 'ADD-POST',
+  UPD_NEW_POST_TXT: 'UPD-NEW-POST-TXT',
+  ADD_MESSAGE: 'ADD-MESSAGE',
+  UPD_NEW_MSG_TEXT: 'UPD-NEW-MSG-TXT',
+};

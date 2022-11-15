@@ -1,3 +1,5 @@
+import { actionTypes } from "./actionTypes";
+
 const store = {
   _state: {
     profilePage: {
@@ -44,7 +46,7 @@ const store = {
 
   dispatch(action) {
     switch (action.type) {
-      case 'ADD-POST':
+      case actionTypes.ADD_POST:
         const newPost = {
           id: this._state.profilePage.posts.length + 1,
           message: this._state.profilePage.newPostText,
@@ -56,12 +58,12 @@ const store = {
         this._callSubscriber();
         break;
 
-      case 'UPD-NEW-POST-TXT':
+      case actionTypes.UPD_NEW_POST_TXT:
         this._state.profilePage.newPostText = action.newText;
         this._callSubscriber();
         break;
 
-      case 'ADD-MESSAGE':
+      case actionTypes.ADD_MESSAGE:
         const newMessage = {
           id: this._state.dialogsPage.messages.length + 1,
           userName: 'me',
@@ -74,7 +76,7 @@ const store = {
         this._callSubscriber();
         break;
 
-      case 'UPD-NEW-MSG-TXT':
+      case actionTypes.UPD_NEW_MSG_TEXT:
         this._state.dialogsPage.newMessageText = action.newText;
         this._callSubscriber();
         break;
@@ -84,14 +86,5 @@ const store = {
     }
   },
 };
-
-export const addPostActionCreator = () => ({
-  type: 'ADD-POST',
-});
-
-export const updNewPostTxtActionCreator = (newText) => ({
-  type: 'UPD-NEW-POST-TXT',
-  newText,
-});
 
 export default store;
