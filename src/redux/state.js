@@ -1,4 +1,6 @@
-import { actionTypes } from "./actionTypes";
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import sidebarReducer from './sidebarReducer';
 
 const store = {
   _state: {
@@ -45,45 +47,11 @@ const store = {
   },
 
   dispatch(action) {
-    switch (action.type) {
-      case actionTypes.ADD_POST:
-        const newPost = {
-          id: this._state.profilePage.posts.length + 1,
-          message: this._state.profilePage.newPostText,
-          likesCount: 0,
-        }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.sideBar = sidebarReducer(this._state.sideBar, action);
 
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber();
-        break;
-
-      case actionTypes.UPD_NEW_POST_TXT:
-        this._state.profilePage.newPostText = action.newText;
-        this._callSubscriber();
-        break;
-
-      case actionTypes.ADD_MESSAGE:
-        const newMessage = {
-          id: this._state.dialogsPage.messages.length + 1,
-          userName: 'me',
-          message: this._state.dialogsPage.newMessageText,
-          isMe: true,
-        };
-
-        this._state.dialogsPage.messages.push(newMessage);
-        this._state.dialogsPage.newMessageText = '';
-        this._callSubscriber();
-        break;
-
-      case actionTypes.UPD_NEW_MSG_TEXT:
-        this._state.dialogsPage.newMessageText = action.newText;
-        this._callSubscriber();
-        break;
-
-      default:
-        console.log('UNKNOWN ACTION');
-    }
+    this._callSubscriber(this._state);
   },
 };
 
