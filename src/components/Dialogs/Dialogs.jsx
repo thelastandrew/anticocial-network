@@ -1,21 +1,21 @@
+import { useRef } from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import { useRef } from 'react';
+import { addMessageActionCreator, updNewMsgTxtActionCreator } from '../../redux/actionCreators';
 
 const Dialogs = (props) => {
   const messageTextEl = useRef();
 
   const handleChange = () => {
-    const action = {
-      type: 'UPD-NEW-MSG-TXT',
-      newText: messageTextEl.current.value,
-    };
-    props.dispatch(action);
+    const newText = messageTextEl.current.value;
+    props.dispatch(
+      updNewMsgTxtActionCreator(newText)
+    );
   };
 
   const handleClick = () => {
-    props.dispatch({ type: 'ADD-MESSAGE' });
+    props.dispatch(addMessageActionCreator());
   };
 
   return (

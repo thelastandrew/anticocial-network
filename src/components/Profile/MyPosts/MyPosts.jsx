@@ -1,7 +1,7 @@
 import { createRef } from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
-import { updNewPostTxtActionCreator, addPostActionCreator } from '../../../redux/state';
+import { updNewPostTxtActionCreator, addPostActionCreator } from '../../../redux/actionCreators';
 
 const MyPosts = (props) => {
   const postEl = createRef();
