@@ -85,4 +85,13 @@ const store = {
   },
 };
 
+export const addPostActionCreator = () => ({
+  type: 'ADD-POST',
+});
+
+export const updNewPostTxtActionCreator = (newText) => ({
+  type: 'UPD-NEW-POST-TXT',
+  newText,
+});
+
 export default store;
