@@ -5,22 +5,22 @@ import NavContainer from './components/Nav/NavContainer';
 import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 
-const App = (props) => (
+const App = () => (
   <div className="app-wrapper">
     <Header />
-    <NavContainer store={props.store} />
+    <NavContainer />
     <div className="content">
       <Routes>
         <Route
           path="/"
           element={
-            <Profile store={props.store}/>
+            <Profile />
           }
         />
         <Route
           path="/dialogs"
           element={
-            <DialogsContainer store={props.store}/>
+            <DialogsContainer />
           }
         />
         <Route path="*" element={<div>page not found</div>} />
