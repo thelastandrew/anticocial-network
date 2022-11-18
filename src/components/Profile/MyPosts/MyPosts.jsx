@@ -1,21 +1,26 @@
 import { createRef } from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
-import { updNewPostTxtActionCreator, addPostActionCreator } from '../../../redux/actionCreators';
 
 const MyPosts = (props) => {
   const postEl = createRef();
 
   const handleChange = () => {
     const text = postEl.current.value;
-    props.dispatch(
-      updNewPostTxtActionCreator(text)
-    );
+    props.updateNewPostText(text)
   };
 
   const handleClick = () => {
-    props.dispatch(addPostActionCreator());
+    props.addPost();
   };
+
+  const postsArray = props.posts.map((post) => (
+    <Post
+      key={post.id}
+      message={post.message}
+      likesCount={post.likesCount}
+    />
+  ))
 
   return (
     <div>
@@ -29,13 +34,7 @@ const MyPosts = (props) => {
         Add post
       </button>
       <div className={s.posts}>
-        {props.posts.map((post) => (
-          <Post
-            key={post.id}
-            message={post.message}
-            likesCount={post.likesCount}
-          />
-        ))}
+        {postsArray}
       </div>
     </div>
   );

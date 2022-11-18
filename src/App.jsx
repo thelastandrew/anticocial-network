@@ -1,32 +1,26 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
-import Nav from './components/Nav/Nav';
+import NavContainer from './components/Nav/NavContainer';
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 const App = (props) => (
   <div className="app-wrapper">
     <Header />
-    <Nav state={props.state.sideBar} />
+    <NavContainer store={props.store} />
     <div className="content">
       <Routes>
         <Route
           path="/"
           element={
-            <Profile
-              profilePage={props.state.profilePage}
-              dispatch={props.dispatch}
-            />
+            <Profile store={props.store}/>
           }
         />
         <Route
           path="/dialogs"
           element={
-            <Dialogs
-              dialogsPage={props.state.dialogsPage}
-              dispatch={props.dispatch}
-            />
+            <DialogsContainer store={props.store}/>
           }
         />
         <Route path="*" element={<div>page not found</div>} />
