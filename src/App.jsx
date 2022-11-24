@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import NavContainer from './components/Nav/NavContainer';
 import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import Users from './components/Users/Users';
 
 const App = () => (
   <div className="app-wrapper">
@@ -11,18 +12,9 @@ const App = () => (
     <NavContainer />
     <div className="content">
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Profile />
-          }
-        />
-        <Route
-          path="/dialogs"
-          element={
-            <DialogsContainer />
-          }
-        />
+        <Route path="/" element={ <Profile /> } />
+        <Route  path="/dialogs" element={ <DialogsContainer /> } />
+        <Route  path="/users" element={ <Users /> } />
         <Route path="*" element={<div>page not found</div>} />
       </Routes>
     </div>
