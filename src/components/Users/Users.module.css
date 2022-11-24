@@ -1,0 +1,58 @@
+.user {
+  background-color: beige;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.avatarBlock {
+  display: flex;
+  width: 100px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userPic {
+  display: block;
+  width: 70px;
+  margin-bottom: 5px;
+}
+
+.followBtn {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: darkslateblue;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 2px 5px;
+  border: 1px solid darkslateblue;
+  border-radius: 3px;
+  transition: 0.3ms;
+}
+
+.followBtn:hover {
+  background-color: darkslateblue;
+  color: beige;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.userLocation {
+  margin-bottom: 20px;
+}
+
+.userStatus {
+  font-style: italic;
+}
+
