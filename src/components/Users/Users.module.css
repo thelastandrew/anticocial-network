@@ -25,7 +25,7 @@
   border-radius: 50%;
 }
 
-.followBtn {
+.usersBtn {
   cursor: pointer;
   border: none;
   background-color: transparent;
@@ -38,9 +38,14 @@
   transition: 0.3ms;
 }
 
-.followBtn:hover {
+.usersBtn:hover {
   background-color: darkslateblue;
   color: beige;
+}
+
+.getUsersBtn {
+  display: block;
+  margin: 0 auto 10px;
 }
 
 .userInfo {

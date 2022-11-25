@@ -4,14 +4,15 @@ import s from './Users.module.css';
 
 const Users = (props) => {
 
-  if (props.users.length === 0) {
+const getUsers = () => {  if (props.users.length === 0) {
     axios
       .get('https://social-network.samuraijs.com/api/1.0/users')
       .then((response) => props.setUsers(response.data.items))
-  }
+  }}
 
   return (
     <div className={s.usersContainer}>
+      <button className={`${s.usersBtn} ${s.getUsersBtn}`} onClick={getUsers}>get users</button>
       {props.users.map((user) => (
         <div className={s.user} key={user.id} id={user.id}>
           <div className={s.avatarBlock}>
@@ -23,14 +24,14 @@ const Users = (props) => {
             <div>
               {user.followed ? (
                 <button
-                  className={s.followBtn}
+                  className={s.usersBtn}
                   onClick={() => props.unFollow(user.id)}
                 >
                   unfollow
                 </button>
               ) : (
                 <button
-                  className={s.followBtn}
+                  className={s.usersBtn}
                   onClick={() => props.follow(user.id)}
                 >
                   follow
