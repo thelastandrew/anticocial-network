@@ -43,11 +43,6 @@
   color: beige;
 }
 
-.getUsersBtn {
-  display: block;
-  margin: 0 auto 10px;
-}
-
 .userInfo {
   display: flex;
   flex-direction: column;
