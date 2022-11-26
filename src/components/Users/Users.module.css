@@ -35,7 +35,7 @@
   padding: 2px 5px;
   border: 1px solid darkslateblue;
   border-radius: 3px;
-  transition: 0.3ms;
+  transition: 0.1s;
 }
 
 .usersBtn:hover {
@@ -57,3 +57,27 @@
   font-style: italic;
 }
 
+.pagination {
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+}
+
+.page {
+  display: inline-block;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.page:hover {
+  transform: scale(1.2);
+}
+
+.page.selected {
+  font-weight: bold;
+}
+
+.page:not(:last-child) {
+  margin-right: 10px;
+}
