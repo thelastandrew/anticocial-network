@@ -25,7 +25,7 @@
   border-radius: 50%;
 }
 
-.usersBtn {
+.btn {
   cursor: pointer;
   border: none;
   background-color: transparent;
@@ -38,7 +38,7 @@
   transition: 0.1s;
 }
 
-.usersBtn:hover {
+.btn:hover:not([disabled]) {
   background-color: darkslateblue;
   color: beige;
 }
@@ -63,21 +63,18 @@
   font-size: 1.5rem;
 }
 
-.page {
-  display: inline-block;
+.pagination .btn {
+  font-size: 1.5rem;
   padding: 0 10px;
-  cursor: pointer;
-  transition: 0.2s;
 }
 
-.page:hover {
-  transform: scale(1.2);
+.pagination .btn:disabled {
+  cursor: default;
+  border-color: lightslategray;
+  color: lightslategray
 }
 
-.page.selected {
-  font-weight: bold;
-}
-
-.page:not(:last-child) {
-  margin-right: 10px;
+.currentPage {
+  display: inline-block;
+  margin: 0 10px;
 }

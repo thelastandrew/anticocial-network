@@ -5,7 +5,8 @@ import {
   unFollowAC,
   setUsersAC,
   setTotalUsersCount,
-  setCurrentPageAC
+  decreaseCurrentPageAC,
+  increaseCurrentPageAC
 } from '../../redux/usersReducer';
 
 const mapStateToProps = state => ({
@@ -13,6 +14,8 @@ const mapStateToProps = state => ({
   pageSize: state.usersPage.pageSize,
   totalUsersCount: state.usersPage.totalUsersCount,
   currentPage: state.usersPage.currentPage,
+  isAbleToDecrease: state.usersPage.isAbleToDecrease,
+  isAbleToIncrease: state.usersPage.isAbleToIncrease,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -20,7 +23,8 @@ const mapDispatchToProps = (dispatch) => ({
   unFollow: userId => { dispatch(unFollowAC(userId)) },
   setUsers: users => { dispatch(setUsersAC(users)) },
   setTotalUsersCount: total => { dispatch(setTotalUsersCount(total)) },
-  setCurrentPage: page => { dispatch(setCurrentPageAC(page)) },
+  decreaseCurrentPage: () => { dispatch(decreaseCurrentPageAC()) },
+  increaseCurrentPage: () => { dispatch(increaseCurrentPageAC()) },
 });
 
 const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
