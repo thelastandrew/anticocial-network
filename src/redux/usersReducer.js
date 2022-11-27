@@ -7,6 +7,7 @@ const initialState = {
   currentPage: 1,
   isAbleToDecrease: false,
   isAbleToIncrease: true,
+  isFetching: false,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -51,6 +52,9 @@ const usersReducer = (state = initialState, action) => {
         isAbleToIncrease: !(state.currentPage === totalPagesCount - 1)
       }
     }
+    case actionTypes.TOGGLE_IS_FETCHING: {
+      return { ...state, isFetching: action.isFetching }
+    }
     default:
       return state;
   }
@@ -62,5 +66,6 @@ export const setUsersAC = users => ({ type: actionTypes.SET_USERS, users });
 export const setTotalUsersCount = total => ({ type: actionTypes.SET_TOTAL_USERS_COUNT, total });
 export const decreaseCurrentPageAC = () => ({ type: actionTypes.DECREASE_CURRENT_PAGE });
 export const increaseCurrentPageAC = () => ({ type: actionTypes.INCREASE_CURRENT_PAGE });
+export const toggleIsFetchingAC = isFetching => ({ type: actionTypes.TOGGLE_IS_FETCHING, isFetching });
 
 export default usersReducer;

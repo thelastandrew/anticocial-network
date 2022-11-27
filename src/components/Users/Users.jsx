@@ -1,5 +1,6 @@
 import s from './Users.module.css';
 import avatar from './avatar.png';
+import Loader from '../Loader/Loader';
 
 const Users = (props) => {
   return       <>
@@ -21,7 +22,7 @@ const Users = (props) => {
     </button>
   </div>
   <div className={s.usersContainer}>
-    {props.users.map((user) => (
+    {props.isFetching ? <Loader /> : props.users.map((user) => (
       <div className={s.user} key={user.id} id={user.id}>
         <div className={s.avatarBlock}>
           <img

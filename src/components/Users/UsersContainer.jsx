@@ -6,7 +6,8 @@ import {
   setUsersAC,
   setTotalUsersCount,
   decreaseCurrentPageAC,
-  increaseCurrentPageAC
+  increaseCurrentPageAC,
+  toggleIsFetchingAC
 } from '../../redux/usersReducer';
 
 const mapStateToProps = state => ({
@@ -16,6 +17,7 @@ const mapStateToProps = state => ({
   currentPage: state.usersPage.currentPage,
   isAbleToDecrease: state.usersPage.isAbleToDecrease,
   isAbleToIncrease: state.usersPage.isAbleToIncrease,
+  isFetching: state.usersPage.isFetching,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -25,6 +27,7 @@ const mapDispatchToProps = (dispatch) => ({
   setTotalUsersCount: total => { dispatch(setTotalUsersCount(total)) },
   decreaseCurrentPage: () => { dispatch(decreaseCurrentPageAC()) },
   increaseCurrentPage: () => { dispatch(increaseCurrentPageAC()) },
+  toggleIsFetching: isFetching => { dispatch(toggleIsFetchingAC(isFetching)) },
 });
 
 const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIContainer);
