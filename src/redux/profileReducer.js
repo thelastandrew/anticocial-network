@@ -23,21 +23,14 @@ const profileReducer = (state = initialState, action) => {
       };
     }
     case actionTypes.UPD_NEW_POST_TXT: {
-      return {
-        ...state,
-        newPostText: action.newText,
-      };
+      return { ...state, newPostText: action.newText };
     }
     default:
       return state;
   }
 };
 
-export const addPostAC = () => ({ type: actionTypes.ADD_POST });
-
-export const updNewPostTxtAC = (newText) => ({
-  type: actionTypes.UPD_NEW_POST_TXT,
-  newText,
-});
+export const addPost = () => ({ type: actionTypes.ADD_POST });
+export const updateNewPostText = newText => ({ type: actionTypes.UPD_NEW_POST_TXT, newText });
 
 export default profileReducer;

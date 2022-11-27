@@ -30,10 +30,7 @@ const dialogsReducer = (state = initialState, action) => {
     }
 
     case actionTypes.UPD_NEW_MSG_TEXT: {
-      return {
-        ...state,
-        newMessageText: action.newText,
-      };
+      return { ...state, newMessageText: action.newText };
     }
 
     default:
@@ -41,11 +38,7 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const addMessageAC = () => ({ type: actionTypes.ADD_MESSAGE });
-
-export const updNewMsgTxtAC = (newText) => ({
-  type: actionTypes.UPD_NEW_MSG_TEXT,
-  newText,
-});
+export const addMessage = () => ({ type: actionTypes.ADD_MESSAGE });
+export const updateNewMessageText = newText => ({ type: actionTypes.UPD_NEW_MSG_TEXT, newText });
 
 export default dialogsReducer;
