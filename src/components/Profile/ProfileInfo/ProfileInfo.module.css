@@ -3,4 +3,27 @@
   width: 100%;
   height: 200px;
   object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profileHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.userPic {
+  display: block;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.userInfo {
+  text-align: right;
+}
+
+.userName {
+  text-transform: uppercase;
 }

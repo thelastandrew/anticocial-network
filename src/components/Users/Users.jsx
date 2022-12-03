@@ -1,6 +1,7 @@
 import s from './Users.module.css';
-import avatar from './avatar.png';
+import avatar from '../../assets/img/avatar.png';
 import Loader from '../Loader/Loader';
+import { NavLink } from 'react-router-dom';
 
 const Users = (props) => {
   return       <>
@@ -25,18 +26,20 @@ const Users = (props) => {
     {props.isFetching ? <Loader /> : props.users.map((user) => (
       <div className={s.user} key={user.id} id={user.id}>
         <div className={s.avatarBlock}>
-          <img
-            className={s.userPic}
-            src={user.photos.small !== null ? user.photos.small : avatar}
-            alt="user-pic"
-          />
+          <NavLink to={`/profile/${user.id}`}>
+            <img
+              className={s.userPic}
+              src={user.photos.small !== null ? user.photos.small : avatar}
+              alt="user-pic"
+            />
+          </NavLink>
           <div>
             {user.followed ? (
               <button
                 className={s.btn}
                 onClick={() => props.unFollow(user.id)}
               >
-                unfollow
+                remove
               </button>
             ) : (
               <button

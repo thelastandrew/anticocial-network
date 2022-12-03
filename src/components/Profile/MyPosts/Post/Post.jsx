@@ -1,5 +1,5 @@
 import s from './Post.module.css';
-import avatar from './avatar.png';
+import avatar from '../../../../assets/img/avatar.png';
 
 const Post = (props) => (
   <div className={s.item}>

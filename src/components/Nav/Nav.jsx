@@ -12,7 +12,7 @@ const Nav = (props) => {
         <div className={s.item}>
           <NavLink
             className={({ isActive }) => (isActive ? s.active : '')}
-            to="/"
+            to="/profile"
           >
             Profile
           </NavLink>
