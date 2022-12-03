@@ -6,7 +6,9 @@ import axios from 'axios';
 
 class ProfileAPIContainer extends Component {
   componentDidMount() {
-    axios.get('https://social-network.samuraijs.com/api/1.0/profile/26855')
+    let userId = this.props.router.params.userId;
+    if (!userId) userId = '26855';
+    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
       .then((response) => {
         this.props.setUserProfile(response.data);
       });
