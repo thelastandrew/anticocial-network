@@ -1,5 +1,5 @@
 import MyPosts from './MyPosts';
-import { updateNewPostText, addPost } from '../../../redux/profileReducer';
+import { updateNewPostText, addPost } from '../../../redux/profile-reducer';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({

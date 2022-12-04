@@ -8,7 +8,7 @@ import {
   decreaseCurrentPage,
   increaseCurrentPage,
   toggleIsFetching
-} from '../../redux/usersReducer';
+} from '../../redux/users-reducer';
 
 const mapStateToProps = state => ({
   users: state.usersPage.users,

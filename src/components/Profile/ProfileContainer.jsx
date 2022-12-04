@@ -1,6 +1,6 @@
 import ProfileAPIContainer from './ProfileAPIContainer';
 import { connect } from 'react-redux';
-import { setUserProfile } from '../../redux/profileReducer';
+import { setUserProfile } from '../../redux/profile-reducer';
 import withRouter from '../../utils/withRouter'
 
 const mapStateToProps = state => ({
