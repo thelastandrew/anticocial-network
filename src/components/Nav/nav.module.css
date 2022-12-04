@@ -7,7 +7,7 @@
   grid-area: n;
   color: white;
   background-color: burlywood;
-  min-height: calc(100vh - 89px);
+  min-height: calc(100vh - 85px);
 }
 
 .item a.active {
