@@ -7,7 +7,8 @@ import {
   setTotalUsersCount,
   decreaseCurrentPage,
   increaseCurrentPage,
-  toggleIsFetching
+  toggleIsFetching,
+  toggleFollowingInProgress
 } from '../../redux/users-reducer';
 
 const mapStateToProps = state => ({
@@ -18,6 +19,7 @@ const mapStateToProps = state => ({
   isAbleToDecrease: state.usersPage.isAbleToDecrease,
   isAbleToIncrease: state.usersPage.isAbleToIncrease,
   isFetching: state.usersPage.isFetching,
+  followingInProgress: state.usersPage.followingInProgress,
 });
 
 const UsersContainer = connect(mapStateToProps, {
@@ -28,6 +30,7 @@ const UsersContainer = connect(mapStateToProps, {
   decreaseCurrentPage,
   increaseCurrentPage,
   toggleIsFetching,
+  toggleFollowingInProgress,
 })(UsersAPIContainer);
 
 export default UsersContainer;

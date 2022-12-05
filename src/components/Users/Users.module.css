@@ -68,7 +68,7 @@
   padding: 0 10px;
 }
 
-.pagination .btn:disabled {
+.btn:disabled {
   cursor: default;
   border-color: lightslategray;
   color: lightslategray

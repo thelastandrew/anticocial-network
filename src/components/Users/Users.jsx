@@ -6,16 +6,24 @@ import { followAPI } from '../../api/api'
 
 const Users = (props) => {
   const follow = (userId) => {
+    props.toggleFollowingInProgress(true, userId);
     followAPI.follow(userId)
       .then(data => {
-        if (data.resultCode === 0) props.follow(userId);
+        if (data.resultCode === 0) {
+          props.follow(userId);
+          props.toggleFollowingInProgress(false, userId);
+        };
       });
   };
 
   const unFollow = (userId) => {
+    props.toggleFollowingInProgress(true, userId);
     followAPI.unFollow(userId)
       .then(data => {
-        if (data.resultCode === 0) props.unFollow(userId);
+        if (data.resultCode === 0) {
+          props.unFollow(userId);
+          props.toggleFollowingInProgress(false, userId);
+        };
       });
   };
 
@@ -52,16 +60,18 @@ const Users = (props) => {
             {user.followed ? (
               <button
                 className={s.btn}
+                disabled={props.followingInProgress.some(id => id === user.id)}
                 onClick={() => {unFollow(user.id)}}
               >
-                remove
+                {props.followingInProgress.some(id => id === user.id) ? 'loading...' : 'remove'}
               </button>
             ) : (
               <button
                 className={s.btn}
+                disabled={props.followingInProgress.some(id => id === user.id)}
                 onClick={() => {follow(user.id)}}
               >
-                follow
+                {props.followingInProgress.some(id => id === user.id) ? 'loading...' : 'follow'}
               </button>
             )}
           </div>

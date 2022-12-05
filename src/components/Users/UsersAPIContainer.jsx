@@ -37,7 +37,9 @@ class UsersAPIContainer extends Component {
       users={this.props.users}
       follow={this.props.follow}
       unFollow={this.props.unFollow}
+      toggleFollowingInProgress={this.props.toggleFollowingInProgress}
       isFetching={this.props.isFetching}
+      followingInProgress={this.props.followingInProgress}
     />
   }
 }
