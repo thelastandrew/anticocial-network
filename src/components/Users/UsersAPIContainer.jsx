@@ -5,7 +5,7 @@ import Users from './Users';
 class UsersAPIContainer extends Component {
   getUsers = (page) => {
     this.props.toggleIsFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`, { withCredentials: true })
       .then((response) => {
         this.props.toggleIsFetching(false);
         this.props.setUsers(response.data.items);
