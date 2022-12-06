@@ -1,30 +1,19 @@
 import { Component } from 'react';
-import { usersAPI } from '../../api/api';
 import Users from './Users';
 
 class UsersAPIContainer extends Component {
-  getUsers = (page) => {
-    this.props.toggleIsFetching(true);
-    usersAPI.getUsers(page, this.props.pageSize)
-      .then((data) => {
-        this.props.toggleIsFetching(false);
-        this.props.setUsers(data.items);
-        this.props.setTotalUsersCount(data.totalCount);
-      });
-  };
-
   componentDidMount() {
-    if (this.props.users.length === 0) this.getUsers(this.props.currentPage);
+    if (this.props.users.length === 0) this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
 
   onDecreaseCurrentPage = () => {
     this.props.decreaseCurrentPage();
-    this.getUsers(this.props.currentPage - 1);
+    this.props.getUsers(this.props.currentPage - 1 , this.props.pageSize);
   };
 
   onIncreaseCurrentPage = () => {
     this.props.increaseCurrentPage();
-    this.getUsers(this.props.currentPage + 1);
+    this.props.getUsers(this.props.currentPage + 1, this.props.pageSize);
   };
 
   render() {
@@ -35,10 +24,9 @@ class UsersAPIContainer extends Component {
       isAbleToIncrease={this.props.isAbleToIncrease}
       currentPage={this.props.currentPage}
       users={this.props.users}
-      follow={this.props.follow}
-      unFollow={this.props.unFollow}
       toggleFollowingInProgress={this.props.toggleFollowingInProgress}
-      isFetching={this.props.isFetching}
+      unFollow={this.props.unFollow}
+      follow={this.props.follow}
       followingInProgress={this.props.followingInProgress}
     />
   }

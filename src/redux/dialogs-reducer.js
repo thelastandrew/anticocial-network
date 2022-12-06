@@ -1,4 +1,6 @@
-import { actionTypes } from './actionTypes';
+const ADD_MESSAGE = 'ADD_MESSAGE';
+const UPD_NEW_MSG_TEXT = 'UPD_NEW_MSG_TEXT';
+
 
 const initialState = {
   dialogs: [
@@ -15,7 +17,7 @@ const initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.ADD_MESSAGE: {
+    case ADD_MESSAGE: {
       const newMessage = {
         id: state.messages.length + 1,
         userName: 'me',
@@ -29,7 +31,7 @@ const dialogsReducer = (state = initialState, action) => {
       };
     }
 
-    case actionTypes.UPD_NEW_MSG_TEXT: {
+    case UPD_NEW_MSG_TEXT: {
       return { ...state, newMessageText: action.newText };
     }
 
@@ -38,7 +40,7 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const addMessage = () => ({ type: actionTypes.ADD_MESSAGE });
-export const updateNewMessageText = newText => ({ type: actionTypes.UPD_NEW_MSG_TEXT, newText });
+export const addMessage = () => ({ type: ADD_MESSAGE });
+export const updateNewMessageText = newText => ({ type: UPD_NEW_MSG_TEXT, newText });
 
 export default dialogsReducer;

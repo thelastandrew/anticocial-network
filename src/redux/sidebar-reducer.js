@@ -1,5 +1,3 @@
-import { actionTypes } from './actionTypes';
-
 const initialState = {
   friends: [
     { id: 1, name: 'Ann' },

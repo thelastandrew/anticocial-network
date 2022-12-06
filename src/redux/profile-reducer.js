@@ -1,4 +1,8 @@
-import { actionTypes } from './actionTypes';
+import { profileAPI } from '../api/api';
+
+const ADD_POST = 'ADD_POST';
+const UPD_NEW_POST_TXT = 'UPD_NEW_POST_TXT';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 const initialState = {
   posts: [
@@ -11,7 +15,7 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.ADD_POST: {
+    case ADD_POST: {
       const newPost = {
         id: state.posts.length + 1,
         message: state.newPostText,
@@ -23,10 +27,10 @@ const profileReducer = (state = initialState, action) => {
         newPostText: '',
       };
     }
-    case actionTypes.UPD_NEW_POST_TXT: {
+    case UPD_NEW_POST_TXT: {
       return { ...state, newPostText: action.newText };
     }
-    case actionTypes.SET_USER_PROFILE: {
+    case SET_USER_PROFILE: {
       return { ...state, profile: action.profile };
     }
     default:
@@ -34,8 +38,15 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const addPost = () => ({ type: actionTypes.ADD_POST });
-export const updateNewPostText = newText => ({ type: actionTypes.UPD_NEW_POST_TXT, newText });
-export const setUserProfile = profile => ({ type: actionTypes.SET_USER_PROFILE, profile });
+export const addPost = () => ({ type: ADD_POST });
+export const updateNewPostText = newText => ({ type: UPD_NEW_POST_TXT, newText });
+const setUserProfile = profile => ({ type: SET_USER_PROFILE, profile });
+
+export const getProfile = (userId) => (dispatch) => {
+  profileAPI.getProfile(userId)
+  .then((data) => {
+    dispatch(setUserProfile(data));
+  });
+};
 
 export default profileReducer;

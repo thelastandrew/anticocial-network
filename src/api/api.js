@@ -38,5 +38,5 @@ export const followAPI = {
     .then(response => response.data),
 
   unFollow: (userId) => API.delete(`${endpoints.follow}/${userId}`)
-  .then(response => response.data),
+    .then(response => response.data),
 };
