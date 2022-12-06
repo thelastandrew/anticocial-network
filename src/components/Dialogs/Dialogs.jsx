@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
+import { Navigate } from 'react-router-dom';
 
 const Dialogs = (props) => {
   const messageTextEl = useRef();
@@ -27,6 +28,8 @@ const Dialogs = (props) => {
       isMe={message.isMe}
     />
   ))
+
+  if (!props.isAuth) return <Navigate to='/login' />;
 
   return (
     <>

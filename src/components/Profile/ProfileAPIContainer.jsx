@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Navigate } from 'react-router-dom';
 import Profile from './Profile';
 
 
@@ -10,6 +11,7 @@ class ProfileAPIContainer extends Component {
   }
 
   render() {
+    if (!this.props.isAuth) return <Navigate to='/login' />
     return <Profile {...this.props} profile={this.props.profile} />;
   }
 }
