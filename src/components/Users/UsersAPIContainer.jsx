@@ -24,6 +24,7 @@ class UsersAPIContainer extends Component {
       isAbleToIncrease={this.props.isAbleToIncrease}
       currentPage={this.props.currentPage}
       users={this.props.users}
+      isFetching={this.props.isFetching}
       toggleFollowingInProgress={this.props.toggleFollowingInProgress}
       unFollow={this.props.unFollow}
       follow={this.props.follow}

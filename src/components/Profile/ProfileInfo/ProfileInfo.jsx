@@ -2,8 +2,9 @@ import s from './ProfileInfo.module.css';
 import Loader from '../../Loader/Loader';
 import wallPaper from '../../../assets/img/cover3.jpg';
 import avatar from '../../../assets/img/avatar.png';
+import ProfileStatus from '../../ProfileStatus/ProfileStatus';
 
-const ProfileInfo = ({ profile }) => {
+const ProfileInfo = ({ profile, status, updateStatus }) => {
   if (!profile) return <Loader />;
 
   const avatarSrc = profile.photos.small
@@ -18,6 +19,10 @@ const ProfileInfo = ({ profile }) => {
         <div className={s.userInfo}>
           <h2 className={s.userName}>{profile.fullName}</h2>
           {profile.aboutMe && <p>{profile.aboutMe}</p>}
+          <ProfileStatus
+            status={status}
+            updateStatus={updateStatus}
+          />
         </div>
       </div>
     </div>

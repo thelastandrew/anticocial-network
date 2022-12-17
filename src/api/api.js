@@ -31,6 +31,10 @@ export const authAPI = {
 export const profileAPI = {
   getProfile: (userId) => API.get(`${endpoints.profile}/${userId}`)
     .then(response => response.data),
+  getStatus: (userId) => API.get(`${endpoints.profile}/status/${userId}`)
+    .then(response => response.data),
+  updateStatus: (status) => API.put(`${endpoints.profile}/status`, { status })
+    .then(response => response.data)
 };
 
 export const followAPI = {

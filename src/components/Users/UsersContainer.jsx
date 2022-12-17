@@ -14,6 +14,7 @@ const mapStateToProps = state => ({
   currentPage: state.usersPage.currentPage,
   isAbleToDecrease: state.usersPage.isAbleToDecrease,
   isAbleToIncrease: state.usersPage.isAbleToIncrease,
+  isFetching: state.usersPage.isFetching,
   followingInProgress: state.usersPage.followingInProgress
 });
 
