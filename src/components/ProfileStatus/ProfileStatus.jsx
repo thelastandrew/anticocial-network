@@ -1,61 +1,76 @@
-import { useState } from 'react';
+import { Component } from 'react';
 import s from './ProfileStatus.module.css';
 
-const ProfileStatus = (props) => {
-  const [state, setState] = useState({
+class ProfileStatus extends Component {
+  state = {
     editMode: false,
-    status: props.status || '',
-  });
+    status: this.props.status || '',
+  }
 
-  const activateEditMode = () => {
-    setState({
-      ...state,
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.status !== this.props.status) {
+      this.setState({
+        status: this.props.status
+      });
+    }
+  }
+
+  activateEditMode = () => {
+    this.setState({
       editMode: true,
     });
+    window.addEventListener('keydown', this.handleKeyDown);
   };
 
-  const deactivateEditMode = () => {
-    setState({
-      ...state,
+  deactivateEditMode = () => {
+    this.setState({
       editMode: false,
     });
-    props.updateStatus(state.status);
+    this.props.updateStatus(this.state.status);
+    window.removeEventListener('keydown', this.handleKeyDown);
   };
 
-  const handleChange = (e) => {
-    setState({
-      ...state,
+  handleKeyDown = (e) => {
+    if (e.code === 'Enter') {
+      this.deactivateEditMode();
+    }
+  }
+
+  handleChange = (e) => {
+    this.setState({
       status: e.target.value,
     });
   }
 
+  render() {
     return (
       <>
-        {!state.editMode && (
+        {!this.state.editMode && (
           <div>
-            <span className={s.status}>{props.status || "no status"}</span>
+            <span className={s.status}>{this.props.status || "no status"}</span>
             <button
               className={s.editBtn}
-              onClick={activateEditMode}
+              onClick={this.activateEditMode}
             >edit</button>
           </div>
         )}
-        {state.editMode && (
+        {this.state.editMode && (
           <div>
             <input
               className={s.statusInput}
-              value={state.status}
+              value={this.state.status}
               autoFocus={true}
-              onChange={handleChange}
+              onChange={this.handleChange}
             />
             <button
               className={s.editBtn}
-              onClick={deactivateEditMode}
+              onClick={this.deactivateEditMode}
             >save</button>
           </div>
         )}
       </>
     );
+  }
 };
 
 export default ProfileStatus;
