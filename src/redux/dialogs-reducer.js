@@ -12,7 +12,6 @@ const initialState = {
     { id: 1, userName: 'Anna', message: 'Hello', isMe: false },
     { id: 2, userName: 'me', message: 'I love you', isMe: true },
   ],
-  newMessageText: '',
 };
 
 const dialogsReducer = (state = initialState, action) => {
@@ -21,13 +20,12 @@ const dialogsReducer = (state = initialState, action) => {
       const newMessage = {
         id: state.messages.length + 1,
         userName: 'me',
-        message: state.newMessageText,
+        message: action.newMessageText,
         isMe: true,
       };
       return {
         ...state,
         messages: [...state.messages, newMessage],
-        newMessageText: '',
       };
     }
 
@@ -40,7 +38,7 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const addMessage = () => ({ type: ADD_MESSAGE });
+export const addMessage = newMessageText => ({ type: ADD_MESSAGE, newMessageText });
 export const updateNewMessageText = newText => ({ type: UPD_NEW_MSG_TEXT, newText });
 
 export default dialogsReducer;
