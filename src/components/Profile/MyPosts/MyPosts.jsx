@@ -1,17 +1,13 @@
-import { createRef } from 'react';
+import { useForm } from 'react-hook-form';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-  const postEl = createRef();
+  const { register, handleSubmit, watch } = useForm();
+  const newPostText = watch('newPostText');
 
-  const handleChange = () => {
-    const text = postEl.current.value;
-    props.updateNewPostText(text)
-  };
-
-  const handleClick = () => {
-    props.addPost();
+  const onSubmit = () => {
+    props.addPost(newPostText);
   };
 
   const postsArray = props.posts.map((post) => (
@@ -23,22 +19,19 @@ const MyPosts = (props) => {
   ))
 
   return (
-    <div>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <textarea
         className={s.textarea}
-        ref={postEl}
-        value={props.newPostText}
-        onChange={handleChange}
+        { ...register('newPostText') }
       ></textarea>
-      <button className={s.addPostBtn} onClick={handleClick}>
+      <button type='submit' className={s.addPostBtn}>
         Add post
       </button>
       <div className={s.posts}>
         {postsArray}
       </div>
-    </div>
+    </form>
   );
 };
 
 export default MyPosts;
-

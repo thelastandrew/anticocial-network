@@ -1,6 +1,4 @@
 const ADD_MESSAGE = 'ADD_MESSAGE';
-const UPD_NEW_MSG_TEXT = 'UPD_NEW_MSG_TEXT';
-
 
 const initialState = {
   dialogs: [
@@ -29,16 +27,11 @@ const dialogsReducer = (state = initialState, action) => {
       };
     }
 
-    case UPD_NEW_MSG_TEXT: {
-      return { ...state, newMessageText: action.newText };
-    }
-
     default:
       return state;
   }
 };
 
 export const addMessage = newMessageText => ({ type: ADD_MESSAGE, newMessageText });
-export const updateNewMessageText = newText => ({ type: UPD_NEW_MSG_TEXT, newText });
 
 export default dialogsReducer;
