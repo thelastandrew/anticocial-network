@@ -1,0 +1,40 @@
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form {
+  text-align: center;
+}
+
+input {
+  padding: 4px 12px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+}
+
+input[type='checkbox'] {
+  margin-right: 5px;
+}
+
+div:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.submitBtm {
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px 12px;
+  border-radius: 5px;
+  border: none;
+  transition: 0.3s;
+}
+
+.submitBtm:hover {
+  background-color: darkgray;
+}
+
+.submitBtm:active {
+  outline: 1px solid black;
+}
