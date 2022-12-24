@@ -37,3 +37,14 @@
 .send_btn:hover {
   box-shadow: 2px 2px 2px rgb(163, 199, 201);;
 }
+
+.send_btn:disabled {
+  cursor: default;
+  background-color: grey;
+}
+
+.errorMessage {
+  color: red;
+  margin-bottom: 10px;
+  text-align: right;
+}

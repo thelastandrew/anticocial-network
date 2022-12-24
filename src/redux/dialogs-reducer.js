@@ -6,10 +6,7 @@ const initialState = {
     { id: 2, name: 'Mom' },
     { id: 3, name: 'Anton' },
   ],
-  messages: [
-    { id: 1, userName: 'Anna', message: 'Hello', isMe: false },
-    { id: 2, userName: 'me', message: 'I love you', isMe: true },
-  ],
+  messages: [],
 };
 
 const dialogsReducer = (state = initialState, action) => {
