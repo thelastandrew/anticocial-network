@@ -38,3 +38,12 @@ div:not(:last-child) {
 .submitBtm:active {
   outline: 1px solid black;
 }
+
+.errorField {
+  border: 2px solid red;
+}
+
+.errorMessage {
+  color: rgb(155, 43, 43);
+  margin-bottom: 10px;
+}
