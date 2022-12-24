@@ -3,11 +3,13 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
   const newPostText = watch('newPostText');
+  const maxLength = 200;
 
   const onSubmit = () => {
     props.addPost(newPostText);
+    reset();
   };
 
   const postsArray = props.posts.map((post) => (
@@ -22,9 +24,11 @@ const MyPosts = (props) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <textarea
         className={s.textarea}
-        { ...register('newPostText') }
-      ></textarea>
-      <button type='submit' className={s.addPostBtn}>
+        placeholder={`type you post, max length is ${maxLength}`}
+        { ...register('newPostText', { maxLength }) }
+      />
+      <p className={s.errorMessage}>{errors.newPostText && `Max length is ${maxLength}`}</p>
+      <button type='submit' className={s.addPostBtn} disabled={!(!!newPostText) || errors.newPostText}>
         Add post
       </button>
       <div className={s.posts}>
