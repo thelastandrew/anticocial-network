@@ -24,10 +24,3 @@
 .loginBtn:hover {
   background-color: burlywood;
 }
-
-.loginName {
-  font-size: 1.3rem;
-  color: beige;
-  font-weight: bold;
-  text-transform: uppercase;
-}

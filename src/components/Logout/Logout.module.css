@@ -1,0 +1,20 @@
+.loginName {
+  font-size: 1.3rem;
+  color: beige;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+
+.logoutContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.logoutBtn {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 3px;
+  border: 1px solid grey;
+  cursor: pointer;
+}

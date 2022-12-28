@@ -1,16 +1,15 @@
 import s from './Header.module.css';
 import logo from '../../assets/img/logo.jpg';
-import { NavLink } from 'react-router-dom';
+import LogoutContainer from '../Logout/LogoutContainer';
 
 const Header = (props) => (
   <header className={s.header}>
     <img src={logo} alt="logo" />
     <div className={s.loginBlock}>
-      {
-        props.isAuth
-        ? <div className={s.loginName}>{props.login}</div>
-        : <NavLink className={s.loginBtn} to={'/login'}>Login</NavLink>
-      }
+      { props.isAuth && <LogoutContainer
+        login={props.login}
+        logout={props.logout}
+      /> }
     </div>
   </header>
 );

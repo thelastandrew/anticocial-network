@@ -4,7 +4,7 @@ const endpoints = {
   users: '/users',
   auth: {
     me: '/auth/me',
-    login: '/auth.login',
+    login: '/auth/login',
   },
   profile: '/profile',
   follow: '/follow',
@@ -25,6 +25,10 @@ export const usersAPI = {
 
 export const authAPI = {
   isAuth: () => API.get(endpoints.auth.me)
+    .then(response => response.data),
+  logIn: (email, password, rememberMe = false) => API.post(endpoints.auth.login, { email, password, rememberMe })
+    .then(response => response.data),
+  logOut: () => API.delete(endpoints.auth.login)
     .then(response => response.data),
 };
 
