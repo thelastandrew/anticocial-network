@@ -6,20 +6,26 @@ const LoginForm = (props) => {
     register,
     handleSubmit,
     reset,
+    setError,
+    clearErrors,
     formState: { errors },
   } = useForm({ mode: 'onTouched' });
 
   const onSubmit = (data) => {
     const { email, password, rememberMe } = data;
-    props.login(email, password, rememberMe);
+    props.login(email, password, rememberMe, setError);
     reset();
   };
 
   const emailRegExp = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
-  const errorMessage =
+  const emailErrorMessage =
     errors.email?.type === 'pattern'
       ? 'Email format is not valid!'
       : 'Email is required!';
+  const passwordErrorMessage =
+    errors.password?.type === 'minLength'
+      ? 'Password is too short!'
+      : 'Password required!'
 
   return (
     <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
@@ -32,20 +38,24 @@ const LoginForm = (props) => {
             required: true,
             pattern: emailRegExp,
           })}
+          onFocus={()=>clearErrors('server')}
         />
-        <p className={s.errorMessage}>{errors.email && errorMessage}</p>
+        {errors.email && <p className={s.errorMessage}>{emailErrorMessage}</p>}
       </div>
       <div>
         <input
-          className={errors.password && s.errorField}
+          className={errors.password?.type === 'required'
+            ? s.errorField
+            : ''
+          }
           placeholder="password"
           type="password"
-          {...register('password', { required: true })}
+          {...register('password', { required: true, minLength: 6 })}
+          onFocus={()=>clearErrors('server')}
         />
-        <p className={s.errorMessage}>
-          {errors.password && 'Password is required!'}
-        </p>
+        {errors.password &&  <p className={s.errorMessage}>{passwordErrorMessage}</p>}
       </div>
+      {errors.server && <p className={s.errorMessage}>{errors.server.message}</p>}
       <div>
         <label>
           <input

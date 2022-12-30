@@ -37,10 +37,12 @@ export const getIsAuth = () => (dispatch) => {
   });
 };
 
-export const login = (email, password, rememberMe) => (dispatch) => {
+export const login = (email, password, rememberMe, setError) => (dispatch) => {
   authAPI.logIn(email, password, rememberMe).then((data) => {
     if (data.resultCode === 0) {
       dispatch(getIsAuth());
+    } else {
+      setError('server', { message: data.messages[0] });
     }
   });
 };

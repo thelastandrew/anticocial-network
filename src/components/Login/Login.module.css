@@ -44,6 +44,7 @@ div:not(:last-child) {
 }
 
 .errorMessage {
-  color: rgb(155, 43, 43);
+  color: rgb(187, 44, 44);
+  font-weight: bold;
   margin-bottom: 10px;
 }
