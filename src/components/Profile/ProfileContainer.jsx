@@ -8,6 +8,7 @@ import { compose } from 'redux';
 const mapStateToProps = state => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
+  authorizedUserId: state.auth.id,
 });
 
 export default compose(

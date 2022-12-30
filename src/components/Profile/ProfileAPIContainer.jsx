@@ -5,7 +5,7 @@ import Profile from './Profile';
 class ProfileAPIContainer extends Component {
   componentDidMount() {
     let userId = this.props.router.params.userId;
-    if (!userId) userId = '26855';
+    if (!userId) userId = this.props.authorizedUserId;
     this.props.getProfile(userId);
     this.props.getStatus(userId);
   }
