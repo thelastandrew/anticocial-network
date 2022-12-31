@@ -3,25 +3,34 @@ import { connect } from 'react-redux';
 import {
   decreaseCurrentPage,
   increaseCurrentPage,
-  getUsers,
+  fetchUsers,
   follow,
   unFollow
 } from '../../redux/users-reducer';
+import {
+  getUsers,
+  getPageSize,
+  getCurrentPage,
+  getIsAbleToDecrease,
+  getIsAbleToIncrease,
+  getIsFetching,
+  getFollowingInProgress
+} from '../../redux/users-selectors';
 
 const mapStateToProps = state => ({
-  users: state.usersPage.users,
-  pageSize: state.usersPage.pageSize,
-  currentPage: state.usersPage.currentPage,
-  isAbleToDecrease: state.usersPage.isAbleToDecrease,
-  isAbleToIncrease: state.usersPage.isAbleToIncrease,
-  isFetching: state.usersPage.isFetching,
-  followingInProgress: state.usersPage.followingInProgress
+  users: getUsers(state),
+  pageSize: getPageSize(state),
+  currentPage: getCurrentPage(state),
+  isAbleToDecrease: getIsAbleToDecrease(state),
+  isAbleToIncrease: getIsAbleToIncrease(state),
+  isFetching: getIsFetching(state),
+  followingInProgress: getFollowingInProgress(state)
 });
 
 const UsersContainer = connect(mapStateToProps, {
   decreaseCurrentPage,
   increaseCurrentPage,
-  getUsers,
+  fetchUsers,
   follow,
   unFollow
 })(UsersAPIContainer);
