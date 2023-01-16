@@ -50,7 +50,7 @@ const LoginForm = (props) => {
           }
           placeholder="password"
           type="password"
-          {...register('password', { required: true, minLength: 6 })}
+          {...register('password', { required: true, minLength: 4 })}
           onFocus={()=>clearErrors('server')}
         />
         {errors.password &&  <p className={s.errorMessage}>{passwordErrorMessage}</p>}
